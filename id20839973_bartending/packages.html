@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DC Bartenders</title>
+</head>
+<body>
+  
+  <section class="header">
+    <nav>
+      <a href="index.html"><img src="photos/Logo.png"></a>
+      <div class="nav-links" id="navLinks">
+        <i class="fa-solid fa-xmark" onclick="HideMenu()"></i>
+        
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="menu.html">MENU</a></li>
+            <li><a href="packages.html">PACKAGES</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="booking.php">BOOK</a></li>
+            <li><a href="login.php">LOGIN</a></li>
+
+          
+          
+        </ul>
+      </div>
+      <i class="fa-solid fa-bars"onclick="ShowMenu()"></i>
+    </nav>
+
+    <div class="packages">
+    <h1>"The usual"</h1>
+    <h2>Bar Package Option</h2>
+    <p>Let us take care of everything for you.</p>
+    <P>We Provide Unlimited drinks for the given hour for a stress free experience.<br> 
+        Guests can choose from countless drinks from cocktails to shooters and also our DC's Specials.<br>
+    We Also host party games for those who wants to liven up the event</P>
+
+    <p>₱200/Guest for 3 hours <br>₱50/Guest for Each Additional hour
+    </p>
+
+    <p>for more details about the drinks, <a href="menu.html">click here.</a></p>
+
+    <h3> More Bar Packages Option Soon...</h3>
+</div>
+
+  
+    
+    
+
+ 
+<!--Footer-->
+  <section class="footer">
+    <h4>About Us</h4>
+    <p>
+      Mobile Bar that will cater your special events.</p>
+      <div class="icons">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-solid fa-phone"></i>
+      </div>
+  </section>
+
+
+
+<!--Menu Function for other Devices-->
+  <script>
+    var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("slideshow")[0].getElementsByTagName("img");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }
+  slides[slideIndex - 1].style.display = "block";
+  setTimeout(showSlides, 2000); // Change slide every 2 seconds (2000 milliseconds)
+}
+    
+    var navLinks = document.getElementById("navLinks");
+
+      function ShowMenu() {
+        navLinks.style.right = "0"
+      }
+
+      function HideMenu() {
+        navLinks.style.right = "-200px"
+      }
+  </script>
+
+</body>
+</html>

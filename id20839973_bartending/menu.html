@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DC Bartenders</title>
+</head>
+<body>
+  
+  <section class="header">
+    <nav>
+      <a href="index.html"><img src="photos/Logo.png"></a>
+      <div class="nav-links" id="navLinks">
+        <i class="fa-solid fa-xmark" onclick="HideMenu()"></i>
+        
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="menu.html">MENU</a></li>
+          <li><a href="#" onclick="showLoginPrompt()">BOOK</a></li>
+          <li><a href="login.php">LOGIN</a></li>
+
+          
+          
+        </ul>
+      </div>
+      <i class="fa-solid fa-bars"onclick="ShowMenu()"></i>
+    </nav>
+  </section>
+
+  <div class="menu-container">
+  <img src="photos/menu.png" alt="">
+</div>
+  
+
+<!--Footer-->
+  <section class="footer">
+    <h4>About Us</h4>
+    <p>
+      Mobile Bar that will cater your special events.</p>
+      <div class="icons">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-solid fa-phone"></i>
+      </div>
+      
+
+
+  </section>
+
+<script>
+    function showLoginPrompt() {
+    alert("You must be logged in to book an event.");
+    window.location.href = "login.php";
+  }
+
+
+</script>
+
+
+
+</body>
+</html>

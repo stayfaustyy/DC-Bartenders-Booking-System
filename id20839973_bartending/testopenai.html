@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Test</title>
+</head>
+<body>
+
+    <!-- Chatbox container -->
+    <div id="chatContainer">
+        <div id="chatContent" style="height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;"></div>
+        <input type="text" id="userInput" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <!-- Add OpenAI API script -->
+    <script src="https://cdn.jsdelivr.net/npm/@openai/api-js@0.7.0/dist/openai-api.min.js"></script>
+
+    <!-- JavaScript code -->
+    <script>
+        // Initialize OpenAI API with your API key
+        const openai = new OpenAI('sk-proj-GWlK3VteGLMAdaZSRgrzT3BlbkFJLF47dEHUeC8wAPweMrVD');
+
+        function sendMessage() {
+            const userInput = document.getElementById('userInput').value.trim();
+            if (userInput === '') return;
+
+            appendMessage(userInput, 'user');
+
+            // Call OpenAI API to generate response
+            openai.complete({
+                engine: 'davinci',
+                prompt: userInput,
+                maxTokens: 150,
+                stop: ['\n'],
+                temperature: 0.7,
+                n: 1
+            }).then((response) => {
+                const aiResponse = response.data.choices[0].text.trim();
+                appendMessage(aiResponse, 'bot');
+            }).catch((error) => {
+                console.error('OpenAI API error:', error);
+                appendMessage('Error occurred while processing.', 'bot');
+            });
+
+            document.getElementById('userInput').value = ''; // Clear input field after sending message
+        }
+
+        function appendMessage(message, sender) {
+            const chatContent = document.getElementById('chatContent');
+            const messageElement = document.createElement('div');
+            messageElement.textContent = `${sender === 'bot' ? 'Bot:' : 'You:'} ${message}`;
+            chatContent.appendChild(messageElement);
+            chatContent.scrollTop = chatContent.scrollHeight;
+        }
+    </script>
+</body>
+</html>
